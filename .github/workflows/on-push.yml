@@ -22,7 +22,7 @@ jobs:
         yarn
     - name: test the app
       run: |
-        CI=true yarn test
+        yarn test
     - name: build
       run: |
         yarn build

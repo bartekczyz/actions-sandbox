@@ -1,4 +1,4 @@
-name: Node CI
+name: On Push
 
 on: [push]
 
@@ -31,7 +31,8 @@ jobs:
           ${{ runner.os }}-yarn-
 
 
-    - uses: actions/cache@v1
+    - name: Use node_modules
+      uses: actions/cache@v1
       with:
         path: ./node_modules
         key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}

@@ -2,6 +2,9 @@ name: On Push
 
 on: [push]
 
+env:
+  CI: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,8 +47,6 @@ jobs:
         yarn
 
     - name: test the app
-      env:
-        CI: true
       run: |
         yarn test
 

@@ -12,6 +12,8 @@ jobs:
         node-version: [12.x]
 
     steps:
+      env:
+        CI: true
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -23,8 +25,6 @@ jobs:
     - name: test the app
       run: |
         yarn test
-      env:
-        CI: true
     - name: build
       run: |
         yarn build

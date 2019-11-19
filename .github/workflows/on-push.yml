@@ -15,13 +15,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: see the files after checkout
+      run: |
+        ls -la
     - uses: actions/cache@v1
       with:
         path: ./node_modules
         key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-node-modules-
+
+    - name: see the files after cache
+      run: |
+        ls -la
 
     - name: install
       run: |
